@@ -1,3 +1,7 @@
+import projectsJSON from "./../assets/data/project-data.json" assert {type: "json"}
+
+export const projectData = projectsJSON.projects;
+
 export class Todo {
 
     #creationDate;

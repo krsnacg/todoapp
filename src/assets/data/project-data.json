@@ -1,0 +1,88 @@
+{
+    "projects": [
+        {
+            "id": "1",
+            "name": "Work Tasks",
+            "todos": [
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440000",
+                    "title": "Finish report",
+                    "desc": "Complete the annual financial report.",
+                    "creationDate": "2025-03-15T10:00:00Z",
+                    "dueDate": "2025-03-20",
+                    "priority": "High",
+                    "state": false
+                },
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440001",
+                    "title": "Schedule meeting",
+                    "desc": "Set up a meeting with the marketing team.",
+                    "creationDate": "2025-03-15T11:00:00Z",
+                    "dueDate": "2025-03-18",
+                    "priority": "Medium",
+                    "state": true
+                },
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440004",
+                    "title": "Update project documentation",
+                    "desc": "Review and update the technical documentation.",
+                    "creationDate": "2025-03-15T12:00:00Z",
+                    "dueDate": "2025-03-25",
+                    "priority": "Medium",
+                    "state": false
+                },
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440005",
+                    "title": "Prepare presentation",
+                    "desc": "Create slides for the upcoming stakeholder meeting.",
+                    "creationDate": "2025-03-15T13:00:00Z",
+                    "dueDate": "2025-03-19",
+                    "priority": "High",
+                    "state": false
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Personal Goals",
+            "todos": [
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440002",
+                    "title": "Go to the gym",
+                    "desc": "Workout for at least 1 hour.",
+                    "creationDate": "2025-03-15T08:00:00Z",
+                    "dueDate": "2025-03-16",
+                    "priority": "High",
+                    "state": false
+                },
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440003",
+                    "title": "Read a book",
+                    "desc": "Finish reading 'Atomic Habits'.",
+                    "creationDate": "2025-03-15T09:00:00Z",
+                    "dueDate": "2025-03-22",
+                    "priority": "Low",
+                    "state": false
+                },
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440006",
+                    "title": "Meditate",
+                    "desc": "Practice mindfulness meditation for 15 minutes.",
+                    "creationDate": "2025-03-15T07:30:00Z",
+                    "dueDate": "2025-03-16",
+                    "priority": "Medium",
+                    "state": false
+                },
+                {
+                    "UUID": "550e8400-e29b-41d4-a716-446655440007",
+                    "title": "Cook a new recipe",
+                    "desc": "Try making homemade sushi.",
+                    "creationDate": "2025-03-15T18:00:00Z",
+                    "dueDate": "2025-03-21",
+                    "priority": "Low",
+                    "state": false
+                }
+            ]
+        }
+    ]
+}
