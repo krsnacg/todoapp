@@ -3,39 +3,88 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>TodoApp</title>
     </head>
     <body>
-        <header>
-            <nav>
-                <button type="button">Home</button>
-                <button type="button">Menu</button>
-                <button type="button">About</button>
-            </nav>
-        </header>
-        <div id="content">
-            <!-- <div class="welcome-title">
-                <h2>¡Bienvenido a [Nombre del Restaurante]!</h2>
-            </div>
-            <div class="home-img">
-                <img src="" alt="">
-            </div>
-            <div class="welcome-msg">
-                <p>En [Nombre del Restaurante], creemos que cada comida es una experiencia única. Nos apasiona ofrecerte platos preparados con los ingredientes más frescos, un ambiente acogedor y un servicio excepcional.</p>
-                <p>Descubre sabores auténticos, creados con amor y tradición. Ya sea que busques una cena especial, un almuerzo con amigos o simplemente un buen café, aquí encontrarás un espacio donde cada bocado cuenta una historia.</p>
-                <p>✨ Cocina con identidad. Ingredientes frescos. Un lugar para disfrutar. ✨</p>
-            </div>
-            <div class="opening-hours">
-                <h3>Horarios de atención</h3>
-                <ul>
-                    <li>Lunes - Viernes: 10am - 10pm</li>
-                    <li>Sabado - Domingo: 12am - 12pm</li>
-                </ul>
-            </div>
-            <div class="location">
-                <p>Dirección: 123 Forest Drive, Forestville, Maine</p>
-                <p>📍 ¡Visítanos y vive la experiencia!</p>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <img src="./assets/favicon.ico" alt="">
+                    <div class="appname"><h3>Todo App</h3></div>
+                </li>
+                <li>
+                    <button type="button" class="nav">
+                        <img src="./assets/icons/home.svg" alt="">
+                        <span>Principal</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="nav">
+                        <img src="./assets/icons/format-list-checks.svg" alt="">
+                        <span>Proyectos</span>
+                    </button>
+                    
+                </li>
+                <li><button type="button" class="nav"><img src="./assets/icons/format-list-checks.svg" alt="">
+                        <span>Tareas</span></button></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <!-- <div class="todolist">
+                <div class="todo">
+                    <div class="todo-title">Take out the trash</div>
+                    <div class="todo-duedate">Exp: <span>Tomorrow</span></div>
+                    <div class="todo-priority">Prioridad: <span>Alta</span></div>
+                    <div class="todo-description">Need to take out the trash from the bathroom, dining room, etc.</div>
+                </div>
             </div> -->
+            <div class="project-section">
+                <div class="projectlist">
+                    <div class="project">
+                        <div class="project-name">
+                            <h3 contenteditable="true">Default Project</h3>
+                        </div>
+                        <div class="tasks">
+                            <div class="add-task">
+                                <button type="button" class="add-task-button">Add task</button>
+                            </div>
+                            <div class="task">
+                                <div class="task-collapsed">
+                                    <div class="task-name">
+                                        <input type="checkbox" name="" id="state" checked>
+                                        <input type="text" id="name" value="Update project documentation">
+                                    </div>
+                                    <!-- <div class="task-exp-collapsed"><span class="task-exp-date">17-03-2025</span></div> -->
+                                    <button type="button" class="caret caret-down"></button>
+                                </div>
+                                <div class="task-expanded">
+                                    <textarea>A really long description message should be placed here to test the element</textarea>
+                                    <div class="task-exp">Due: <input type="date" class="task-exp-date" value = ""></div>
+                                    <div class="task-state">State: <span class="state-indicator">Done</span></div>
+                                    <div class="task-priority">Priority: 
+                                        <span class="priority">
+                                            <select name="priority" id="priority">
+                                                <option value="LOW">Low</option>
+                                                <option value="MEDIUM">Medium</option>
+                                                <option value="HIGH">High</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div class="non-editable">
+                                        <div class="task-creation-date">Creation: ${task.creationDate}</div>
+                                        <div class="task-id">ID: ${task.UUID}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button type="button" class="addproj">
+                    <img src="./assets/icons/plus.svg" alt="">
+                    <div class="add-project">Add project</div>
+                </button>
+            </div>
         </div>
     </body>
 </html>
