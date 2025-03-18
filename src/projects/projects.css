@@ -57,6 +57,12 @@
     border-right: 1px solid rgb(199, 199, 199);
 }
 
+.project-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .project-name > h3 {
     border-radius: 4px;
     padding: 0 4px;
@@ -145,7 +151,8 @@
     font-size: 11px;
 }
 
-.caret {
+
+.caret, .task-icon {
     height: 20px;
     width: 20px;
     border: none;
@@ -154,10 +161,11 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-.caret:hover {
+.caret:hover, .project-icon:hover, .task-icon:hover {
     /* width: 18px;
     height: 18px; */
     background-color: #ebebeb;
+    opacity: 0.7;
     /* border: 2px solid #FFF; */
     transition: 0.5s;
 }
@@ -170,6 +178,27 @@
     background-image: url("./../assets/icons/chevron-up.svg");
 }
 
+.delete-icon {
+    background-image: url("./../assets/icons/delete.svg");
+    opacity: 0.2;
+}
+
+.close-icon {
+    background-image: url("./../assets/icons/close.svg");
+    opacity: 0.2;
+}
+
+.close-icon, .delete-icon {
+    border-radius: 20%;
+}
+
+.project-icon {
+    height: var(--medium-icon-size);
+    width: var(--medium-icon-size);;
+    border: none;
+    background-color: #FFF;
+    transition: background-color 0.3s ease-in-out;
+}
 
 .addproj {
     padding: 4px;
