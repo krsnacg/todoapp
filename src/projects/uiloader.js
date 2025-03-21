@@ -1,8 +1,6 @@
 import { setupTaskItemButtons, setupTaskItemEditing, setupProjectItemButtons, setupProjectItemEditing, setupAddProjectButton } from "./eventloader";
 import { projectData } from "./objects";
 
-console.log(projectData.at(0).todos.find(t => t.UUID == ""));
-
 function addTask(taskListHTML, projectToUpdate, task, taskIndex) {
     // const projectToUpdate = projectData.find(p => p.UUID === projectUUID);
     // if (!projectToUpdate) { 
