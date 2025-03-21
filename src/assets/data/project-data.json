@@ -1,7 +1,7 @@
 {
     "projects": [
         {
-            "id": "1",
+            "UUID": "1",
             "name": "Work Tasks",
             "todos": [
                 {
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "id": "2",
+            "UUID": "2",
             "name": "Personal Goals",
             "todos": [
                 {
