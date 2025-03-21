@@ -1,4 +1,4 @@
-import { Project, Todo } from "./objects";
+import { Project, projectData, Todo } from "./objects";
 // TODO: Implement event delegation
 export function setupTaskItemEditing(project, taskHtml, task) {
     const taskToUpdate = project.todos.find(t => t.UUID === task.UUID);
@@ -102,6 +102,16 @@ export function setupAddProjectButton(projectListHTML, projectList, addProject) 
         // displayProjects(projectList);
         console.log(`Project created with UUID ${project.UUID}`);
     });
+}
+
+window.onbeforeunload = function (event) {
+    console.log("Saving projects before closing");
+    try {
+        localStorage.removeItem("projectList");
+        localStorage.setItem("projectList", JSON.stringify({"projects": projectData}));
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 // Función común para manejar la expansión/contracción

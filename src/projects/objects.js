@@ -5,8 +5,8 @@ export class Todo {
     #creationDate;
     #priority
 
-    constructor(title = "Add a title here", desc = "Add a large description here", creationDate = new Date(Date.now()), dueDate = "Date", priority = "HIGH", state = false) {
-        this.UUID = crypto.randomUUID();
+    constructor(title = "Add a title here", desc = "Add a large description here", creationDate = new Date(Date.now()), dueDate = "Date", priority = "HIGH", state = false, UUID = crypto.randomUUID()) {
+        this.UUID = UUID;
         this.title = title;
         this.desc = desc;
         this.#creationDate = creationDate;
@@ -42,15 +42,27 @@ export class Todo {
                 State: ${this.state}\n`;
     }
 
+    toJSON() {
+        return {
+            UUID: this.UUID,
+            title: this.title,
+            desc: this.desc,
+            creationDate: this.#creationDate,
+            dueDate: this.dueDate,
+            priority: this.#priority,
+            state: this.state,
+        }
+    }
+
 }
 
 export class Project {
 
-    constructor(name = "Default", todos = [], tags = []) {
-        this.UUID = crypto.randomUUID();
+    constructor(name = "Default", todos = [], UUID = crypto.randomUUID()) {
+        this.UUID = UUID;
         this.name = name;
         this.todos = todos;
-        this.tags = tags
+        // this.tags = tags
     }
 
     addTask(task) {
@@ -81,7 +93,16 @@ export class Project {
     }
 }
 
-export const projectData = projectsJSON.projects.map((project) => {
+if (!localStorage.getItem("projectList")) {
+    localStorage.setItem("projectList", JSON.stringify(projectsJSON));
+    console.log("Projects not available. Generating new projects");
+} else {
+    console.log("Projects loaded")
+    // const cm = JSON.parse(localStorage.getItem("projectList"));
+    // console.log(`json: ${cm}`);
+}
+
+export const projectData = JSON.parse(localStorage.getItem("projectList")).projects.map((project) => {
     const todos = project.todos.map((task) => {
         return new Todo(
             task.title, 
@@ -89,8 +110,30 @@ export const projectData = projectsJSON.projects.map((project) => {
             task.creationDate, 
             task.dueDate, 
             task.priority.toLocaleUpperCase(), 
-            task.state
+            task.state,
+            task.UUID
         );
     });
-    return new Project(project.name, todos);
+    return new Project(project.name, todos, project.UUID);
 });
+
+function isStorageAvailable(type) {
+    let storage;
+    try {
+        storage = window[type];
+        const x = "__storage_test__";
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    } catch (error) {
+        return (
+            error instanceof DOMException &&
+            error.name === "QuotaExceedError" &&
+            storage &&
+            storage.length !== 0
+        )
+    }
+}
+
+// console.log(isStorageAvailable("sessionStorage"));
+
