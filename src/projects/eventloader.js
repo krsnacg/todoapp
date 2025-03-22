@@ -67,7 +67,7 @@ export function setupTaskItemButtons(project, taskHtml, task) {
 
 export function setupProjectItemButtons(projectList, project, projectHTML, addTask) {
     const selector = ".add-task-button";
-    projectHTML.querySelector(selector).addEventListener("click", (button) => {
+    projectHTML.querySelector(selector).addEventListener("click", () => {
         const task = new Todo();
         project.addTask(task);
         const taskListHTML = projectHTML.querySelector(".tasks");
@@ -95,7 +95,7 @@ export function setupProjectItemEditing(project, projectHTML) {
 }
 
 export function setupAddProjectButton(projectListHTML, projectList, addProject) {
-    document.querySelector(".addproj").addEventListener("click", (button) => {
+    document.querySelector(".addproj").addEventListener("click", () => {
         const project = new Project();
         projectList.push(project);
         addProject(projectListHTML, project);
@@ -104,7 +104,7 @@ export function setupAddProjectButton(projectListHTML, projectList, addProject) 
     });
 }
 
-window.onbeforeunload = function (event) {
+window.onbeforeunload = function () {
     console.log("Saving projects before closing");
     try {
         localStorage.removeItem("projectList");
