@@ -1,4 +1,4 @@
-import projectsJSON from "./../assets/data/project-data.json" assert {type: "json"}
+import projectsJSON from "./../assets/data/project-data.json" with {type: "json"}
 
 export class Todo {
 
