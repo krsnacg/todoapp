@@ -1,11 +1,18 @@
-import projectsJSON from "./../assets/data/project-data.json" with {type: "json"}
+import projectsJSON from "./../assets/data/project-data.json" with { type: "json" };
 
 export class Todo {
-
     #creationDate;
-    #priority
+    #priority;
 
-    constructor(title = "Add a title here", desc = "Add a large description here", creationDate = new Date(Date.now()), dueDate = "Date", priority = "HIGH", state = false, UUID = crypto.randomUUID()) {
+    constructor(
+        title = "Add a title here",
+        desc = "Add a large description here",
+        creationDate = new Date(Date.now()),
+        dueDate = "Date",
+        priority = "HIGH",
+        state = false,
+        UUID = crypto.randomUUID(),
+    ) {
         this.UUID = UUID;
         this.title = title;
         this.desc = desc;
@@ -28,7 +35,9 @@ export class Todo {
         if (values.includes(value)) {
             this.#priority = value;
         } else {
-            throw new Error(`Valor no permitido. Debe ser uno de: ${values.join(', ')}`);
+            throw new Error(
+                `Valor no permitido. Debe ser uno de: ${values.join(", ")}`,
+            );
         }
     }
 
@@ -51,13 +60,11 @@ export class Todo {
             dueDate: this.dueDate,
             priority: this.#priority,
             state: this.state,
-        }
+        };
     }
-
 }
 
 export class Project {
-
     constructor(name = "Default", todos = [], UUID = crypto.randomUUID()) {
         this.UUID = UUID;
         this.name = name;
@@ -67,7 +74,9 @@ export class Project {
 
     addTask(task) {
         if (!(task instanceof Todo)) {
-            throw new TypeError("This element is not an instance of class Todo");
+            throw new TypeError(
+                "This element is not an instance of class Todo",
+            );
         }
         this.todos.push(task);
     }
@@ -79,13 +88,15 @@ export class Project {
         }
         if (this.getTaskCount() > 0) {
             const removedTask = this.todos.splice(index, 1);
-            console.log(`Removed element at index ${index}: ${removedTask.toString()}`);
+            console.log(
+                `Removed element at index ${index}: ${removedTask.toString()}`,
+            );
             return true;
         }
     }
 
     toString() {
-        return `Name: ${this.name}\nUUID: ${this.UUID}\nTasks: ${this.todos}`
+        return `Name: ${this.name}\nUUID: ${this.UUID}\nTasks: ${this.todos}`;
     }
 
     getTaskCount() {
@@ -97,21 +108,23 @@ if (!localStorage.getItem("projectList")) {
     localStorage.setItem("projectList", JSON.stringify(projectsJSON));
     console.log("Projects not available. Generating new projects");
 } else {
-    console.log("Projects loaded")
+    console.log("Projects loaded");
     // const cm = JSON.parse(localStorage.getItem("projectList"));
     // console.log(`json: ${cm}`);
 }
 
-export const projectData = JSON.parse(localStorage.getItem("projectList")).projects.map((project) => {
+export const projectData = JSON.parse(
+    localStorage.getItem("projectList"),
+).projects.map((project) => {
     const todos = project.todos.map((task) => {
         return new Todo(
-            task.title, 
-            task.desc, 
-            task.creationDate, 
-            task.dueDate, 
-            task.priority.toLocaleUpperCase(), 
+            task.title,
+            task.desc,
+            task.creationDate,
+            task.dueDate,
+            task.priority.toLocaleUpperCase(),
             task.state,
-            task.UUID
+            task.UUID,
         );
     });
     return new Project(project.name, todos, project.UUID);
@@ -131,9 +144,8 @@ function isStorageAvailable(type) {
             error.name === "QuotaExceedError" &&
             storage &&
             storage.length !== 0
-        )
+        );
     }
 }
 
 // console.log(isStorageAvailable("sessionStorage"));
-
